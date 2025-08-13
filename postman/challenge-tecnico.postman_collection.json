@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "ea68b8db-f65e-4da1-b2eb-65852e9d65a1",
+		"name": "challenge tecnico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11347857"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"raul.reyesjiemezicoo@gmail.com\",\n    \"name\": \"raul reyes jimenez\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"raul.reyesjiemezicoo@gmail.com\",\n    \"password\": \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "new event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDg0NTk1LCJleHAiOjE3NTUwODgxOTV9.P_BUNPCD82J3-JsbPObbFmliTCDAoVr2eM8EF9oNAQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Concierto test 3\",\n  \"date\": \"2025-12-10T20:00:00Z\",\n  \"location\": \"Auditorio Nacional\",\n  \"capacity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/events",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDgzNjI1LCJleHAiOjE3NTUwODcyMjV9.Bd0b9_M9CMS2uN7vI4lK5MJz_a7gg_l_DHEpQmGGiLc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/events",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWI2ZTQ5Mjg2OTk3NjEzZmMyYmIwZSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb0BnbWFpbC5jb20iLCJpYXQiOjE3NTUwMzM2NTYsImV4cCI6MTc1NTAzNzI1Nn0.HRmHuG-RdMBLwhJITGqQLjyimzE22MxkSbpDnSZLggo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Concierto test modi\",\n  \"date\": \"2025-12-10T20:00:00Z\",\n  \"location\": \"Auditorio Nacional\",\n  \"capacity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/events/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "689bb53173d130c21e732cc9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDg0NTk1LCJleHAiOjE3NTUwODgxOTV9.P_BUNPCD82J3-JsbPObbFmliTCDAoVr2eM8EF9oNAQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/events/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "689c7863637b352800f63093"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDg0MTk2LCJleHAiOjE3NTUwODc3OTZ9.751DiOJYjbq3pFWAFtZVvMO-zWap10lK9yUu6vBVnCw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/events/my-events",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"events",
+								"my-events"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reservations",
+			"item": [
+				{
+					"name": "new reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDg0MTk2LCJleHAiOjE3NTUwODc3OTZ9.751DiOJYjbq3pFWAFtZVvMO-zWap10lK9yUu6vBVnCw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event\": \"689c7863637b352800f63093\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reservations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my reservations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWM2MWUyOGFlZTc0N2VlZGIzNTU5YSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDg0NTk1LCJleHAiOjE3NTUwODgxOTV9.P_BUNPCD82J3-JsbPObbFmliTCDAoVr2eM8EF9oNAQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reservations/my-reservations",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"my-reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWI2ZTQ5Mjg2OTk3NjEzZmMyYmIwZSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb0BnbWFpbC5jb20iLCJpYXQiOjE3NTUwMzEyNjYsImV4cCI6MTc1NTAzNDg2Nn0.wLEN_bBJU0ssYNZNTzfgseTcgaarLZzh9DdMdyxoQfA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idReservation\": \"689b9e45b0ff5e5bc1e62bb7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reservations/cancel",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservations",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWJiN2U4M2U2Mjg2YjIxMzYwOWYxYSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDM1NjMzLCJleHAiOjE3NTUwMzkyMzN9.blfjhXNbgGRfli4EVwu-yNJDfg7ry0J1E3eOG0EoqAQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/me",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWJiN2U4M2U2Mjg2YjIxMzYwOWYxYSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDM1NjMzLCJleHAiOjE3NTUwMzkyMzN9.blfjhXNbgGRfli4EVwu-yNJDfg7ry0J1E3eOG0EoqAQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"raul jimenez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/me",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OWJiN2U4M2U2Mjg2YjIxMzYwOWYxYSIsImVtYWlsIjoicmF1bC5yZXllc2ppZW1lemljb29AZ21haWwuY29tIiwiaWF0IjoxNzU1MDM3NzkxLCJleHAiOjE3NTUwNDEzOTF9.gcOrQkEMoBfeYCK_T-IgJPGG5hiKSvLPKDN4w7qxt58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currentPassword\": \"1234567890\",\n  \"newPassword\": \"tuNuevaContrasena123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/password",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
