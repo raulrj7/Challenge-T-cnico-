@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: my_api
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/my_database
+      - NODE_ENV=development
+    depends_on:
+      - mongo
+    volumes:
+      - ./src:/app/src
+      - /app/node_modules
+    command: npm run dev
+
+  mongo:
+    image: mongo:6.0
+    container_name: my_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
