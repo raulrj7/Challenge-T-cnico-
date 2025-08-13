@@ -13,7 +13,7 @@ export const jwtMiddleware = (req: JwtRequest, res: Response, next: NextFunction
   if (!token) return res.status(401).json({ message: 'No autorizado' });
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET || 'clave_secreta') as {
+    const payload = jwt.verify(token, process.env.JWT_SECRET || 'secret_key') as {
       id: string;
       email: string;
     };

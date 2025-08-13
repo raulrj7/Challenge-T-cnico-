@@ -84,23 +84,32 @@ export const eventController = {
     try {
       const eventId = req.params.id;
       const userId = req.user?.id;
-
+  
       if (!isValidObjectId(userId) || !isValidObjectId(eventId)) {
         return res.status(400).json({ message: 'Invalid ID' });
       }
-
+  
       const deletedEvent = await eventService.deleteEvent(eventId, userId!);
-
-      if (!deletedEvent) {
-        return res.status(403).json({ message: 'You cannot delete this event or it does not exist' });
+  
+      if (deletedEvent === null) {
+        return res.status(409).json({
+          message: 'Cannot delete event because it has active reservations'
+        });
       }
-
+  
+      if (!deletedEvent) {
+        return res.status(403).json({
+          message: 'You cannot delete this event or it does not exist'
+        });
+      }
+  
       res.json({ message: 'Event deleted' });
     } catch (err) {
       console.error('Error deleting event:', err);
       res.status(500).json({ message: 'Internal server error' });
     }
   },
+  
 
   async listUserEvents(req: AuthenticatedRequest, res: Response) {
     try {

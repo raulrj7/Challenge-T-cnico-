@@ -1,4 +1,5 @@
 import { Event, IEvent } from '../../models/events.model';
+import { Reservation } from '../../models/reservations.model';
 
 export const eventService = {
   async createEvent(data: Partial<IEvent>) {
@@ -48,10 +49,20 @@ export const eventService = {
   },
 
   async deleteEvent(id: string, userId: string) {
+    const activeReservations = await Reservation.countDocuments({
+      event: id,
+      status: { $ne: 'cancelled' }
+    });
+  
+    if (activeReservations > 0) {
+      // No borramos, pero tampoco lanzamos error
+      return null;
+    }
+  
     const event = await Event.findOneAndDelete({ _id: id, creator: userId });
     return event;
   },
-
+  
   async listEventsByUser(userId: string) {
     return Event.find({ creator: userId }).populate('creator', 'name email').exec();
   }
