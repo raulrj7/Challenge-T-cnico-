@@ -55,7 +55,6 @@ export const eventService = {
     });
   
     if (activeReservations > 0) {
-      // No borramos, pero tampoco lanzamos error
       return null;
     }
   
